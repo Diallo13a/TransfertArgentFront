@@ -1,0 +1,128 @@
+<ion-header class="grid">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <!--        <ion-item>-->
+        <!--          <ion-icon class="orange" name="home" slot="start"></ion-icon>-->
+        <!--        </ion-item>-->
+        <img src="../assets/img/home.svg" class="home" defaultHref="home" alt="img/home">
+      </ion-col>
+      <ion-col>
+        <img src="../assets/img/min_logo.jpeg" class="image_milieu haut" alt="img/min_logo">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="milieu">
+        <ion-icon class="orange fleche" name="return-up-back-outline"></ion-icon>
+        <ion-label class="depot">Retrait</ion-label>
+        <div class="trait">
+
+        </div>
+        <!--        <ion-icon class="trait" name="remove-outline"></ion-icon>-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <form  [formGroup]="formCode">
+  <ion-item class="ion-padding-bottom">
+    <ion-label position="floating">Code</ion-label>
+    <ion-input type="number" formControlName="code" placeholder="Saisir code"></ion-input>
+  </ion-item>
+    <span class="danger">{{errorCode}}</span>
+
+    <ion-button class="boutton" color="danger" (click)="afficheInfo()" expand="block">VerifierCode</ion-button>
+  </form>
+  <div class="divsegment gris">
+    <div padding>
+      <ion-segment color="white" [(ngModel)]="seg">
+        <ion-segment-button value="emetteur">
+          Bénèficiaire
+        </ion-segment-button>
+        <ion-segment-button value="beneficiaire">
+          Emetteur
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="seg">
+      <div *ngSwitchCase="'emetteur'">
+      <ion-list *ngIf="dataRec">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <label class="droit">{{dataRec.cni}}</label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom & Prenom</ion-label>
+          <label class="droit">{{dataRec.nomComplet}}</label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant à Recevoir</ion-label>
+          <label class="droit">{{dataRec.solde}}</label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Telephone</ion-label>
+          <label class="droit">{{dataRec.phoneClient}}</label>
+        </ion-item>
+
+<!--        <ion-item class="lastitem">-->
+<!--          <ion-label class="date" position="floating">Date D'envoi</ion-label>-->
+<!--          <label>{{dataRec.date_depot}}</label>-->
+<!--        </ion-item>-->
+        <ion-grid>
+          <ion-row>
+            <ion-col size-md="3">
+              <div>
+                <ion-button color="danger"  (click)="cancelRetrait()" >Annuler</ion-button>
+              </div>
+            </ion-col>
+            <ion-col size-md="3" class="ion-float-left">
+              <div>
+                <ion-button color="primary" (click)="confirmRetrait()">Retirer</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-list>
+      </div>
+      <div *ngSwitchCase="'beneficiaire'">
+      <ion-list *ngIf="dataEnv">
+        <ion-item>
+          <ion-label position="floating">N° CNI</ion-label>
+          <label class="droit">{{dataEnv.cni}}</label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Nom & Prenom</ion-label>
+          <label class="droit">{{dataEnv.nomComplet}}</label>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Montant envoyé</ion-label>
+          <label class="droit">{{dataEnv.solde}}</label>
+        </ion-item>
+        <ion-item class="lastitemben">
+          <ion-label position="floating">Telephone</ion-label>
+          <label class="droit">{{dataEnv.phoneClient}}</label>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col size-md="3">
+              <div>
+                <ion-button color="danger"  (click)="cancelRetrait()" >Annuler</ion-button>
+              </div>
+            </ion-col>
+            <ion-col size-md="3" class="ion-float-left">
+              <div>
+                <ion-button color="primary" (click)="confirmRetrait()">Retirer</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+      </div>
+    </div>
+  </div>
+
+</ion-header>
+
+<ion-content class="bas">
+
+</ion-content>

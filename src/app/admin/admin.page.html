@@ -1,0 +1,116 @@
+<ion-header>
+
+    <ion-grid class="grid">
+      <ion-row>
+        <ion-col class="hambourger haut" size-sm="6" offset-sm="3">
+          <ion-menu-button menu="main-menu"></ion-menu-button>
+        </ion-col>
+        <ion-col size-sm="6" offset-sm="3">
+          <img src="../assets/img/min_logo.jpeg" class="image_milieu haut" alt="img/min_logo">
+        </ion-col>
+        <ion-col size-sm="6" offset-sm="3">
+<!--          <img src="../assets/img/oumar_photo.jpg" class="image_oumar haut" alt="img/oumar_photo">-->
+          <img src="data:image/png;base64,{{user?.avatar}}" class="image_oumar haut">
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="somme" size-sm="6" offset-sm="3">
+           <span class="monsolde"> Mon solde disponible </span> <br>
+           <strong class="solde">150000</strong>  &nbsp; fcfa <ion-icon class="eye" name="eye-outline"></ion-icon><br>
+           <span class="ajour">Mise à jour le 10/10/2020 à 13:45</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+</ion-header>
+<ion-list>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="return-up-forward-outline"></ion-icon>
+    <ion-label>Dépot</ion-label>
+    <ion-icon class="orange" routerLink="/depot" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="return-up-back-outline"></ion-icon>
+    <ion-label>Retrait</ion-label>
+    <ion-icon class="orange" routerLink="/retrait" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="sync-outline"></ion-icon>
+    <ion-label>Mes transactions</ion-label>
+    <ion-icon class="orange" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="sync-circle-outline"></ion-icon>
+    <ion-label>Toutes les transactions</ion-label>
+    <ion-icon class="orange" routerLink="/transaction" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="grid-outline"></ion-icon>
+    <ion-label>Mes commissions</ion-label>
+    <ion-icon class="orange" routerLink="/commission" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="calculator-outline"></ion-icon>
+    <ion-label>Calculateur de frais</ion-label>
+    <ion-icon class="orange" routerLink="/calculateur-frais" name="chevron-forward-outline"></ion-icon>
+  </ion-item>
+  <ion-item class="espace">
+    <ion-icon class="orange" name="log-out"></ion-icon>
+    <ion-label>Déconnexion</ion-label>
+    <ion-icon class="orange" name="chevron-forward-outline" type="submit" (click)="logout()"></ion-icon>
+  </ion-item>
+</ion-list>
+
+
+<!--<ion-content>-->
+<!--  <ion-grid>-->
+<!--    <ion-row>-->
+<!--      <ion-col col-12 col-sm>-->
+<!--        <ion-item>-->
+<!--          <ion-icon class="orange" name="home" slot="start"></ion-icon>-->
+<!--        </ion-item>-->
+<!--      </ion-col>-->
+<!--      <ion-col col-12 col-sm>-->
+<!--        <ion-item>-->
+<!--          <ion-icon class="orange" name="timer-outline"></ion-icon>-->
+<!--        </ion-item>-->
+<!--      </ion-col>-->
+<!--      <ion-col col-12 col-sm>-->
+<!--        <ion-item>-->
+<!--          <ion-icon class="orange" name="grid-outline"></ion-icon>-->
+<!--        </ion-item>-->
+<!--      </ion-col>-->
+<!--      <ion-col col-12 col-sm>-->
+<!--        <ion-item>-->
+<!--          <ion-icon class="orange" name="calculator-outline"></ion-icon>-->
+<!--        </ion-item>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--  </ion-grid>-->
+<!--</ion-content>-->
+<ion-content>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" class="orange">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="time">
+      <ion-icon name="time"></ion-icon>
+      <ion-label>Historique</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="map">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <ion-label>Info</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="calculator">
+      <ion-icon name="calculator"></ion-icon>
+      <ion-label>Calculateur</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content>

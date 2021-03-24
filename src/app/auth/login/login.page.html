@@ -1,0 +1,40 @@
+<!--<ion-header id="header">-->
+  <ion-card class="card">
+  <div class="container">
+    <div class="login">
+      <p>Login</p>
+    </div>
+    <div class="trait">
+
+    </div>
+  </div>
+  <div class="conteneur">
+    <img src="../assets/img/min_logo.jpeg" routerLink="/login" class="imagehaut" alt="img/min_logo">
+  </div>
+  </ion-card>
+<!--</ion-header>-->
+
+<ion-content  class="ion-padding">
+
+  <form [formGroup]="form" (submit)="onSubmit()">
+<!--    <div class="lgmdp">-->
+
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" required formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item class="password">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input [type]="showPassword ? 'text' : 'password'" required formControlName="password"></ion-input>
+      <ion-icon slot="end" [name]="passwordToggleIcon" (click)="tooglePassword()"></ion-icon>
+    </ion-item>
+    <div class="mdpop">
+      <a href=""  class="mdpo">Mot de passe oublié?</a>
+    </div>
+    <div class="boutton">
+      <ion-button type="submit"  color="secondary" class="btn" expand="block" [disabled]="form.invalid">Se connecter</ion-button>
+    </div>
+<!--    </div>-->
+  </form>
+
+</ion-content>

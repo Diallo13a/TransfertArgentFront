@@ -1,0 +1,142 @@
+<ion-header class="grid">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+<!--        <ion-item>-->
+<!--          <ion-icon class="orange" name="home" slot="start"></ion-icon>-->
+<!--        </ion-item>-->
+        <img src="../assets/img/home.svg" class="home" alt="img/home">
+      </ion-col>
+      <ion-col>
+        <img src="../assets/img/min_logo.jpeg" class="image_milieu haut" alt="img/min_logo">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="milieu">
+        <ion-icon class="orange fleche" name="return-up-forward-outline"></ion-icon>&nbsp;
+        <ion-label class="depot">Dépot</ion-label>
+        <div class="trait">
+
+        </div>
+<!--        <ion-icon class="trait" name="remove-outline"></ion-icon>-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="divsegment gris">
+  <div padding>
+    <ion-segment color="white" [(ngModel)]="seg">
+      <ion-segment-button value="emetteur">
+        Emetteur
+      </ion-segment-button>
+      <ion-segment-button value="beneficiaire">
+        Bénèficiaire
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+    <div [ngSwitch]="seg">
+      <form  [formGroup]="form">
+        <ion-list *ngSwitchCase="'emetteur'">
+          <ion-item>
+            <ion-label position="floating">N° CNI</ion-label>
+            <ion-input required formControlName="cni_envoyeur" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.cni">-->
+<!--            <ng-container *ngIf="cni.hasError(error.type) && (cni.dirty ||cni.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+<!--          <ion-item>-->
+<!--            <ion-label position="floating">Nom</ion-label>-->
+<!--            <ion-input required formControlName="nomComplet_receveur" type="text" minlength="1" maxlength="20"></ion-input>-->
+<!--          </ion-item>-->
+<!--          <div *ngFor="let error of errorMessages.nomComplet_receveur">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (nomComplet_receveur.dirty ||nomComplet_receveur.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item>
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input required formControlName="nomComplet_envoyeur" type="text" minlength="1" maxlength="20"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.prenom">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (nomComplet_envoyeur.dirty ||nomComplet_envoyeur.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item>
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input required formControlName="phone_client_envoyeur" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.phone">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (phone.dirty ||phone.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item>
+            <ion-label position="floating">Montant</ion-label>
+            <ion-input required formControlName="montant" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.montant">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (montant.dirty ||montant.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item>
+            <ion-label class="frais" position="floating">Frais</ion-label>
+            <ion-input required formControlName="frais" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.frais">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (frais.dirty ||frais.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item class="lastitem">
+            <ion-label position="floating">Total</ion-label>
+            <ion-input required formControlName="total" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.total">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (total.dirty ||total.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-button class="boutton" color="danger" (click)="suivant()" expand="block" [disabled]="!form.valid">Suivant</ion-button>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'beneficiaire'">
+          <ion-item>
+            <ion-label position="floating">Cni Receveur</ion-label>
+            <ion-input formControlName="cni_receveur" type="text" minlength="1" maxlength="20"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.prenomd">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (prenomd.dirty ||prenomd.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input formControlName="nomComplet_receveur" type="text" minlength="1" maxlength="20"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.nomd">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (nomd.dirty ||nomd.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-item class="lastitemben">
+            <ion-label position="floating">Téléphone</ion-label>
+            <ion-input formControlName="phone_client_receveur" type="number"></ion-input>
+          </ion-item>
+<!--          <div *ngFor="let error of errorMessages.phoned">-->
+<!--            <ng-container *ngIf="nom.hasError(error.type) && (phoned.dirty ||phoned.touched)">-->
+<!--              <small class="error-message">{{error.message}}</small>-->
+<!--            </ng-container>-->
+<!--          </div>-->
+          <ion-button class="boutton" color="danger" (click)="onSubmit()" expand="block" [disabled]="!form.valid">Terminer</ion-button>
+        </ion-list>
+      </form>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="bas">
+
+</ion-content>
